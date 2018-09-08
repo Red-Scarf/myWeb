@@ -29,12 +29,12 @@ Route::group(['prefix' => 'admin'], function (){
         Route::get('/roles/create', '\App\Admin\Controllers\RoleController@create'); // 创建页面
         Route::post('/roles/store', '\App\Admin\Controllers\RoleController@store'); // 创建操作
         Route::get('/roles/{role}/permission', '\App\Admin\Controllers\RoleController@permission'); // 查某一角色的权限页面
-        Route::post('/roles/{role}/permission', '\App\Admin\Controllers\UserController@storePermission'); // 修改某一角色的权限
+        Route::post('/roles/{role}/permission', '\App\Admin\Controllers\RoleController@storePermission'); // 修改某一角色的权限
 
         // 权限
-        Route::get('/permission', '\App\Admin\Controllers\PermissionController@index'); // 列表
-        Route::get('/permission/create', '\App\Admin\Controllers\PermissionController@create'); // 创建页面
-        Route::post('/permission/store', '\App\Admin\Controllers\PermissionController@store'); // 创建操作
+        Route::get('/permissions', '\App\Admin\Controllers\PermissionController@index'); // 列表
+        Route::get('/permissions/create', '\App\Admin\Controllers\PermissionController@create'); // 创建页面
+        Route::post('/permissions/store', '\App\Admin\Controllers\PermissionController@store'); // 创建操作
 
         // 审核模块
         Route::get('/posts', '\App\Admin\Controllers\PostController@index');// 显示审核模块页面

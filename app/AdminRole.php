@@ -13,7 +13,7 @@ class AdminRole extends Model
     }
 
     // 给角色赋予权限
-    public function grrantPermission($permission)
+    public function grantPermission($permission)
     {
         return $this->permissions()->save($permission);
     }
