@@ -45,7 +45,7 @@ class AdminUser extends Authenticatable
     }
 
     // 用户是否有权限
-    public function hadPermission($permission)
+    public function hasPermission($permission)
     {
         // 判断该permission所属的role是否和用户的role有交集
         return $this->isInRoles($permission->roles);

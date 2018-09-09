@@ -151,7 +151,7 @@ class PostController extends Controller
         ]);
         // luoji
         $query = request('query');
-        $posts = Post::search($query)->paginate(5);
+        $posts = Post::search($query)->paginate(10);
         // xuanran
         return view('post/search', compact('posts', 'query'));
 //        return view('post/search');
