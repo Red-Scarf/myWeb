@@ -46,6 +46,12 @@ Route::group(['prefix' => 'admin'], function (){
             Route::get('/posts', '\App\Admin\Controllers\PostController@index');// 显示审核模块页面
             Route::post('/posts/{post}/status', '\App\Admin\Controllers\PostController@status');// 文章操作
         });
+
+        Route::group(['middleware' => 'can:topic'], function (){
+
+            // 专题管理
+            Route::resource('topics', '\App\Admin\Controllers\TopicController', ['only' => ['index', 'create', 'store', 'destroy']]);
+        });
     });
 
 });
