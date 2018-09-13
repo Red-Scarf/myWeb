@@ -28,6 +28,7 @@ class NoticeController extends Controller
 
         $notice = \App\Notice::create(request(['title', 'content']));
 
+        // 队列的实现方法
         dispatch(new \App\Jobs\SendMessage($notice));
 
         return redirect("/admin/notices");
